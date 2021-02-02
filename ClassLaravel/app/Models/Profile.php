@@ -12,5 +12,6 @@ class Profile extends Model
     public function user(){
         // $profile = Profile::where('user_id', $this->id)->fist();
         return $this->belongsTo('App\Models\User');
+        
     }
 }
