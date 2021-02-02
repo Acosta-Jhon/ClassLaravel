@@ -1,2 +1,2 @@
 # ClassLaravel
-Investigacion de comandos Laravel
+Temas vistos en clase
