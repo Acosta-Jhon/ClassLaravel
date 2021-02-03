@@ -15,10 +15,10 @@ class CreateProfilesTable extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('description');
-            $table->string('followers');
-            $table->string('following');
+            $table->string('name')->nullable();
+            $table->string('description')->nullable();
+            $table->string('followers')->nullable();
+            $table->string('following')->nullable();
             
             //FK
             $table->unsignedBiginteger('user_id')->unique();

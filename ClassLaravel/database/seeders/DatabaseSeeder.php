@@ -21,10 +21,23 @@ class DatabaseSeeder extends Seeder
         Level::factory(5)->create();
         User::factory(3)->create();
         Group::factory(5)->create();
-
-        //Relacion 1 - 1 obligado a instanciar en sus propios Seeders
         $this->call(ProfileSeeder::class);
         $this->call(LocationSeeder::class);
 
+        /*User::factory(5)->create()->each(function($user){
+            $profile=$user->profile()->save(Profile::make());
+            $profile->location()->save(Location::make());
+            $user->groups()->attach($this->array(rand(1,3)));
+        });
+        */
     }
+
+    /*public function array($max)
+    {
+        $values=[];
+        for ($_REQUEST['i']=1; $_REQUEST['i']<$max; $_REQUEST['i']++) { 
+            $values[]=$_REQUEST["i"];
+        }
+        return $values;
+    }*/
 }

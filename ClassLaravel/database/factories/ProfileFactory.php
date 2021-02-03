@@ -22,7 +22,12 @@ class ProfileFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name'=>$this->faker->name,
+            'description'=>$this->faker->sentence(),
+            'followers'=>$this->faker->sentence(),
+            'following'=>$this->faker->sentence(),
+            
+            'user_id'=>$this->faker->randomElement([1,2,3,4,5])
         ];
     }
 }

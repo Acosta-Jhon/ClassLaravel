@@ -22,7 +22,10 @@ class LocationFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'address'=>$this->faker->sentence(),
+            'latitude'=>$this->faker->sentence(),
+            'longitude'=>$this->faker->sentence(),
+            'profile_id'=>$this->faker->randomElement([1,2,3,4,5])
         ];
     }
 }

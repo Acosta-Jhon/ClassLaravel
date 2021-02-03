@@ -32,6 +32,8 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
 
             'level_id'=> $this->faker->randomElement([1,2,3,4,5])
+            
+            //
         ];
     }
 }

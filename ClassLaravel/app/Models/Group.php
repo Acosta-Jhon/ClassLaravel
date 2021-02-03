@@ -10,6 +10,6 @@ class Group extends Model
     use HasFactory;
 
     public function users(){
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany(User::class);
     }
 }
