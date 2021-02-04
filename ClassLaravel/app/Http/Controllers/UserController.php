@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Group;
+use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Resources\GroupResource;
+use App\Http\Resources\UserResource;
 
-class GroupController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class GroupController extends Controller
      */
     public function index()
     {
-        $group = Group::paginate(10);
-        return GroupResource::collection($group);
+        $user = User::paginate(10);
+        return UserResource::collection($user);
     }
 
     /**
@@ -37,24 +37,28 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
-        $group = new Group();
-        $group->name = $request->name;
-        $group->description = $request->description;
+        $user = new User();
+        $user->name = $request->name;
+        $user->lastname = $request->lastname;
+        $user->nickname = $request->nickname;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->level_id = $request->level_id;
 
         
-        if($group->save())
+        if($user->save())
         {
-            return new GroupResource($group);
+            return new UserResource($user);
         }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Group  $group
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Group $group)
+    public function show($id)
     {
         //
     }
@@ -62,10 +66,10 @@ class GroupController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Group  $group
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Group $group)
+    public function edit($id)
     {
         //
     }
@@ -74,10 +78,10 @@ class GroupController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Group  $group
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Group $group)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -85,10 +89,10 @@ class GroupController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Group  $group
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Group $group)
+    public function destroy($id)
     {
         //
     }
